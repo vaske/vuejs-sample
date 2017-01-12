@@ -1,0 +1,356 @@
+$backgroun-color: #1f1f1f;
+
+html, body, #root {
+  margin: 0;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+body {
+  background: #E1E1E1;
+  height: 100%;
+  min-height: 100%;
+  position: relative;
+  font: 16px/1 sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+blockquote,
+figure,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    color: #5aadbb;
+  }
+  &.btn {
+    border-radius: 30px;
+  }
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  align-items: center;
+  background-color: $backgroun-color;
+}
+
+/**********************************************************************
+ Navigation for room selection
+***********************************************************************/
+.room-nav {
+  background: white;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  margin: 0 auto;
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+
+  ul {
+    text-align: center;
+    margin: 0 auto;
+    li {
+      display: inline-block;
+      padding: 0.9375rem;
+
+      &.active {
+        font-weight: bold;
+      }
+
+      a {
+        color:black;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+    }
+
+  }
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+  z-index: 10000;
+}
+
+/**********************************************************************
+ Navigation for room selection
+***********************************************************************/
+#room-nav {
+  background: white;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  margin: 0 auto;
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  ul {
+    text-align: center;
+    li {
+      display: inline-block;
+      padding: 0.9375rem;
+
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/**********************************************************************
+ Container listing users selected choices
+***********************************************************************/
+#select {
+  max-width: 300px;
+  position: fixed;
+  right: 0;
+  top: 4.6875rem;
+  z-index: 100;
+
+
+  #collection {
+    background: orange;
+    padding: 0.3125rem;
+
+    h2 {
+      text-transform: capitalize;
+    }
+
+    ul {
+      list-style: none;
+
+      li {
+        margin-bottom: 0.3125rem;
+        overflow: hidden;
+        a {
+          display: block;
+          float: left;
+          margin-right: 0.625rem;
+          img {
+            max-width: 100px;
+            max-height: 100px;
+          }
+        }
+
+      }
+    }
+  }
+
+  .email-button {
+    margin-top: 1.25rem;
+    a {
+      background-color: #FFF;
+      border-radius: 4px;
+      display: block;
+      padding: 0.625rem 0.9375rem;
+      margin: 0 auto;
+      max-width: 40%;
+      color:black;
+      text-align: center;
+    }
+  }
+
+}
+
+/* Shared product styles */
+.prod {
+  position: absolute;
+  a.btn {
+    background: white;
+    border-radius: 30px;
+    bottom: 10%;
+    display: none;
+    left: 50%;
+    padding: 0.3125rem 0.9375rem;
+    position: absolute;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+}
+
+#showroom {
+  height: 1080px;
+  margin: 0 auto;
+  max-width: 1920px;
+  position: relative;
+
+  /* Bedroom */
+  #bedroom {
+    background: url("/images/room.png") no-repeat 0 0;
+    height: 1080px;
+    position: relative;
+
+    .clone {
+      opacity: 1;
+      z-index: 10001 !important;
+    }
+
+    #bed {
+      bottom: 142px;
+      left: 50%;
+      z-index: 100;
+    }
+    #rug {
+      bottom: 120px;
+      left: 50%;
+      z-index: 10;
+    }
+    #nightstand {
+      bottom: 20%;
+      left: 70%;
+      z-index: 20;
+    }
+    #lamp {
+      bottom: 49%;
+      left: 70%;
+      z-index: 30;
+    }
+    #dresser {
+      bottom: 20%;
+      left: 25%;
+      -webkit-transform: translateX(-20%);
+      -ms-transform: translateX(-20%);
+      transform: translateX(-20%);
+      z-index: 40;
+    }
+    #art {
+      top: 142px;
+      left: 50%;
+      z-index: 90;
+      &.btn {
+        bottom: inherit;
+        top: 10%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
+
+/**********************************************************************
+ Greeting message
+***********************************************************************/
+#greeting {
+  bottom: 40px;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  max-width: 800px;
+  p {
+    font-size: 1.875rem;
+    line-height: 2.1875rem;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+/**********************************************************************
+ Options Viewer (Thumbnail bar)
+***********************************************************************/
+#thumbs {
+  background-color: rgba(0, 0, 0, 0.7);
+  bottom: 0;
+  /*visibility: hidden;*/
+  position: fixed;
+  width: 100%;
+  z-index: 10001 !important;
+
+  img {
+    max-height: 150px;
+    max-width: 100px;
+  }
+
+  ul {
+    li {
+      float: left;
+      margin-right: 10px;
+      max-width: 110px;
+      max-height: 130px;
+    }
+
+  }
+
+  .top {
+    background: #000;
+    min-height: 20px;
+    overflow: hidden;
+    vertical-align: middle;
+    h1 {
+      color: #FFF;
+      display: inline-block;
+    }
+    .close {
+      background: red;
+      color: #FFF;
+      cursor: pointer;
+      display: inline-block;
+      float: right;
+      padding: 5px 15px;
+    }
+  }
+}
+
+
+.footer {
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: $backgroun-color;
+  text-align: center;
+  color: white;
+}
+
+/**********************************************************************
+ Transition effects
+***********************************************************************/
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-active {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+.swiper-container {
+  height: 130px;
+}
+
+[v-cloak] { display: none; }
+
